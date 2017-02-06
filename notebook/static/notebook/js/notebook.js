@@ -348,12 +348,8 @@ define([
                 delete that.metadata.language_info;
                 return;
             }
-            var existing_info = that.metadata.language_info;
             var langinfo = kinfo.language_info;
             that.metadata.language_info = langinfo;
-            if (!existing_info || ! _.isEqual(existing_info, langinfo)) {
-                that.set_dirty(true);
-            }
             // Mode 'null' should be plain, unhighlighted text.
             var cm_mode = langinfo.codemirror_mode || langinfo.name || 'null';
             that.set_codemirror_mode(cm_mode);
